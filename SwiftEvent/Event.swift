@@ -8,55 +8,42 @@
 
 import Foundation
 
-//: From [Colin Eberhardt](https://twitter.com/ColinEberhardt)'s [blog](http://blog.scottlogic.com/2015/02/05/swift-events.html)
+public class Event<T: Hashable> {
 
-public class Event<T> {
+    public typealias EventHandler = () -> ()
 
-    public typealias EventHandler = T -> ()
-
-    private var eventHandlers = [Invocable]()
+    private var eventHandlers = [T: Invocable]()
 
     public func raise(data: T) {
-        for handler in self.eventHandlers {
-            handler.invoke(data)
-        }
+        eventHandlers[data]?.invoke()
     }
 
-    public func addHandler<U: AnyObject>(target: U, handler: (U) -> EventHandler) -> Disposable {
-        let wrapper = EventHandlerWrapper(target: target,
-            handler: handler, event: self)
-        eventHandlers.append(wrapper)
-        return wrapper
+    func setTarget<U: AnyObject>(target: U, handler: (U) -> EventHandler, controlEvent: T) {
+        eventHandlers[controlEvent] = EventHandlerWrapper(
+                target: target, handler: handler)
+    }
+
+    func removeTargetForControlEvent(controlEvent: T) {
+        eventHandlers[controlEvent] = nil
     }
 }
 
 private protocol Invocable: class {
-    func invoke(data: Any)
+    func invoke()
 }
 
-private class EventHandlerWrapper<T: AnyObject, U> : Invocable, Disposable {
+private class EventHandlerWrapper<T: AnyObject> : Invocable {
     weak var target: T?
-    let handler: T -> U -> ()
-    unowned let event: Event<U>
+    let handler: T -> () -> ()
 
-    init(target: T?, handler: T -> U -> (), event: Event<U>) {
+    init(target: T?, handler: T -> () -> ()) {
         self.target = target
         self.handler = handler
-        self.event = event;
     }
 
-    func invoke(data: Any) -> () {
+    func invoke() {
         if let t = target {
-            handler(t)(data as! U)
+            handler(t)()
         }
     }
-
-    func dispose() {
-        event.eventHandlers =
-            event.eventHandlers.filter { $0 !== self }
-    }
-}
-
-public protocol Disposable {
-    func dispose()
 }

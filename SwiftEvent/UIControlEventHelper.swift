@@ -8,6 +8,12 @@
 
 import UIKit
 
+extension UIControlEvents: Hashable {
+    public var hashValue: Int {
+        return Int(rawValue)
+    }
+}
+
 public class UIControlEventHelper: NSObject {
 
     weak var control: UIControl?

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        button.controlEvent.addHandler(self, handler: ViewController.pushNextViewController)
+        button.controlEvent.setTarget(self, handler: ViewController.pushNextViewController, controlEvent: .TouchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func pushNextViewController(eventType: UIControlEvents) {
+    func pushNextViewController() {
         let viewController = UIViewController()
         viewController.view.backgroundColor = .yellowColor()
         navigationController?.pushViewController(viewController, animated: true)
