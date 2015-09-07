@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F8757EC1B9D7E12000CA261 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8757EB1B9D7E12000CA261 /* Event.swift */; settings = {ASSET_TAGS = (); }; };
+		1F8757EE1B9D80E6000CA261 /* UIControlEventHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8757ED1B9D80E6000CA261 /* UIControlEventHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		1FFF63921B9C810D00C6000A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF63911B9C810D00C6000A /* AppDelegate.swift */; };
 		1FFF63941B9C810D00C6000A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFF63931B9C810D00C6000A /* ViewController.swift */; };
 		1FFF63971B9C810D00C6000A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FFF63951B9C810D00C6000A /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F8757EB1B9D7E12000CA261 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		1F8757ED1B9D80E6000CA261 /* UIControlEventHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlEventHelper.swift; sourceTree = "<group>"; };
 		1FFF638E1B9C810D00C6000A /* SwiftEvent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftEvent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFF63911B9C810D00C6000A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FFF63931B9C810D00C6000A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		1FFF63901B9C810D00C6000A /* SwiftEvent */ = {
 			isa = PBXGroup;
 			children = (
+				1F8757EB1B9D7E12000CA261 /* Event.swift */,
+				1F8757ED1B9D80E6000CA261 /* UIControlEventHelper.swift */,
 				1FFF63911B9C810D00C6000A /* AppDelegate.swift */,
 				1FFF63931B9C810D00C6000A /* ViewController.swift */,
 				1FFF63951B9C810D00C6000A /* Main.storyboard */,
@@ -255,7 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8757EE1B9D80E6000CA261 /* UIControlEventHelper.swift in Sources */,
 				1FFF63941B9C810D00C6000A /* ViewController.swift in Sources */,
+				1F8757EC1B9D7E12000CA261 /* Event.swift in Sources */,
 				1FFF63921B9C810D00C6000A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +491,7 @@
 				1FFF63B81B9C810E00C6000A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FFF63B91B9C810E00C6000A /* Build configuration list for PBXNativeTarget "SwiftEventTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +500,7 @@
 				1FFF63BB1B9C810E00C6000A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FFF63BC1B9C810E00C6000A /* Build configuration list for PBXNativeTarget "SwiftEventUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +509,7 @@
 				1FFF63BE1B9C810E00C6000A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
